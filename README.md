@@ -9,4 +9,6 @@ Study Guide for Developer and Solutions Architect Certificates
   * [S3](https://aws.amazon.com/s3/faqs/)
   * [RDS](https://aws.amazon.com/rds/faqs/)
   * [DynamoDB](https://aws.amazon.com/dynamodb/faqs/)
-
+  * [Route53](https://aws.amazon.com/route53/faqs/)
+  
+# ADD CONTENT
