@@ -11,7 +11,7 @@ Study Guide for Developer and Solutions Architect Certificates
   * [DynamoDB](https://aws.amazon.com/dynamodb/faqs/)
   * [Route53](https://aws.amazon.com/route53/faqs/)
   
-## S3
+## S3 (Simple Storage Service)
 
 ### S3 Object Storage Classes
   * S3-Standard - Durability of 99.999999999% and availability of 99.99%.
@@ -61,3 +61,76 @@ Study Guide for Developer and Solutions Architect Certificates
   * Versioning is a good backup tool.
 
   * For versioning. MFA can be setup for Delete capability for object / bucket – Complicated setup.
+  
+### S3 Versioning Exam Tips:
+
+  * Stores all versions of the object(all writes and deletes)
+  
+  * Great backup tool
+  
+  * Once enabled, versioning cannot be disabled, only suspended
+  
+  * Integrates with lifecycle rules
+  
+  * Versioning's MFA delete capability, which uses multi-factor authentication, can be used to provide additional security
+    cross region replication requires versioning enabled on the source bucket
+    
+
+### S3 Lifecycle management:
+
+  * Can be used in conjunction with versioning
+
+  * Can be applied to current versions and previous versions.
+
+  * Following actions are allowed in conjunction with or without versioning:
+
+    * archive to Glacier storage class(30 days after IA, if relevant)
+
+    * permanent delete
+
+    * archive and permanent delete
+   
+    * transition to the Standard: Infrequent Access Storage class(128kb and 30 days after the creation date)
+
+### S3 Lifecycle management Exam tips:
+
+  * Can be used with versioning
+  * Can be applied to current and previous versions
+  * Following actions can now be done
+      * Transition to Standard-IA(128kb and 30 days after creation date)
+      * Archive to glacier storage class(30 days after IA)
+      * permanently delete
+
+### S3 Security:
+
+   * All buckets are PRIVATE by default. That means, if you were to type in the buckets publicly accessible URL address, and it’s not a publicly available bucket, you wouldn’t be able to access object within that bucket. You would have actually go in and make that bucket public
+   * Allows Access Control Lists (an individual user can only have access to 1 bucket and have read only access)
+   * Integrates with IAM using roles,for example allows EC2 users to have access to S3 buckets by roles
+   * All endpoints are encrypted by SSL
+   * S3 buckets can be configured to create access logs which log all the requests made to the S3 bucket. This can be done to another bucket
+
+### S3 Functionality:
+
+  * Static websites can be hosted on S3. No need for webservers, you can just upload a static .html file to an S3 bucket and take advantage of AWS S3’s durability and High Availability
+  
+  * Integrates with Cloud Front CDN,which is Amazon’s own Content Delivery Network
+  
+  * Multipart uploads, allows you to upload parts of a file concurrently
+  
+  * Suggested for files over 100MB.It is required for any files over 5GB
+  
+  * Allows us to resume a stopped file upload
+  
+  * S3 is spread across multiple availability zones, and they guarantee Eventual consistency. All AZ’s will eventually be consistent.    Put/Write/Delete requests will eventually be consistent across AZ’s
+
+### S3 use Cases:
+
+  * File shares for networks
+  
+  * Backup/archiving
+  
+  * Used as an origin for CloudFront’s Content Distribution Network
+  
+  * Hosting static files
+  
+  * Hosting static websites
