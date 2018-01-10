@@ -134,3 +134,7 @@ Study Guide for Developer and Solutions Architect Certificates
   * Hosting static files
   
   * Hosting static websites
+
+# VPC (Virtual Private Cloud)
+
+## To be done
