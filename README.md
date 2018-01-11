@@ -135,6 +135,14 @@ Study Guide for Developer and Solutions Architect Certificates
   
   * Hosting static websites
 
-# VPC (Virtual Private Cloud)
+## VPC (Virtual Private Cloud)
 
-## To be done
+  * Virtual data centre in the cloud
+  * A logically isolated section of AWS cloud where you can launch AWS resources in a virtual network you define
+  * You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, network access control lists, configuring route tables, and network gateways
+  * 1 subnet = 1 AZ
+  * Security groups are stateful, network access control lists are stateless, i.e. with nacls we will need to open both inbound and outbound ports for eg for port 80, but not with security groups
+  * Subnets and ACLs provide much better security over your AWS resources
+  * Instances security groups, they span multiple AZs and hence can span multiple VPCs
+  * Subnet acls
+  * Default vs custom vpc
