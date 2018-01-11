@@ -137,12 +137,84 @@ Study Guide for Developer and Solutions Architect Certificates
 
 ## VPC (Virtual Private Cloud)
 
+### Introduction
+  * VPC is a logical data center within an AWS Region.
+
+  * Control over network environment, select IP address range, subnets and configure route tables and gateways.
+
+  * Do not span regions, but can span AZs.
+
+  * Can create public facing subnet (Web) having internet access and private facing subnet (DB) with no internet access
+
+  * Public Subnet – Web Servers/ Jump Boxes
+
+  * Private Subnet – Applications Servers / Database servers
+
+  * Leverage multiple layers of security – Security groups and Network ACLs to control access to EC2 instances
+
+  * Create hardware VPN connection between your local DC and AWS.
+
+  * AWS gives a maximum of /16 network.
+
+  * Bastion host/ Jump Box in Public subnet
+
+  * Security groups, Network ACLs, Route Tables can span subnets/AZs.
+
+  * Each subnet is always mapped to an availability zone. 1 subnet = 1 AZ
+
+  * Only one internet gateway per VPC. [Trick question – improve performance by adding Gateway – just not possible]
+
+  * Security groups are stateful. Network ACLs are stateless.
+
+  * By default, how many VPCs am I allowed in each AWS Region? == 5
+
+  * Typical Private IP address ranges – not publically routable.
+
+  * 10.0.0.0 - 10.255.255.255 (10/8 prefix)
+
+  * 172.16.0.0 - 172.31.255.255 (172.16/12 prefix)
+
+  * 192.168.0.0 - 192.168.255.255 (192.168/16 prefix)
+
   * Virtual data centre in the cloud
+  
   * A logically isolated section of AWS cloud where you can launch AWS resources in a virtual network you define
+  
   * You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, network access control lists, configuring route tables, and network gateways
+  
   * 1 subnet = 1 AZ
+  
   * Security groups are stateful, network access control lists are stateless, i.e. with nacls we will need to open both inbound and outbound ports for eg for port 80, but not with security groups
+  
   * Subnets and ACLs provide much better security over your AWS resources
+  
   * Instances security groups, they span multiple AZs and hence can span multiple VPCs
+  
   * Subnet acls
+  
   * Default vs custom vpc
+  
+    * Default allows you to deploy immediately, user friendly
+    
+    * All subnets have a route to the internet, do not get private subnets in default vpc
+    
+    * Each ec2 instance will has private and public IP address, in a custom vpc with a private subnet we won't get a public ip address we only get a private address
+    
+   * VPC peering
+   
+      * Allows you to connect 1 vpc to another via direct connect route using private ip
+      
+      * Instances behave as if they were on the same private network
+      
+      * Peering possible with vpcs in the same aws account or in different aws accounts
+      
+      * Always a star configuration, 1 central VPC peers with 4 others. No transitive peering!
+      
+  * Whenever you create a new VPC AWS creates a default ACL, a default security group, and a route, but it won't create a subnet, you will need to create one yourself
+  
+  * Always going to loose 5 ip addresses when you create a subnet, since those 5 are reserved by Amazon
+  
+  * You can have 1 NAT gateway for 1 custom vpc
+  
+  * Allowed to have 5 VPCs in a region
+
