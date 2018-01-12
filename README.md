@@ -257,3 +257,7 @@ Study Guide for Developer and Solutions Architect Certificates
   * You can use Network ACLs to control traffic for both NAT Instance and Gateway.
 
   * NAT Gateways scale up to 10GBps. No need to disable source/ destination checks on Gateways.
+
+### Create Links
+
+### EC2
